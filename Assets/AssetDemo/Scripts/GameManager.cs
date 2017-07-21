@@ -4,9 +4,12 @@ using AssetBundles;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject debbugerTest;
     // Use this for initialization
     IEnumerator Start()
     {
+        DontDestroyOnLoad(debbugerTest);
+
         yield return StartCoroutine(Initialize());
     }
 

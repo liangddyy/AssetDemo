@@ -554,16 +554,17 @@ namespace AssetBundles
 
         void Update()
         {
-            // Update all in progress operations
             for (int i = 0; i < m_InProgressOperations.Count;)
             {
                 var operation = m_InProgressOperations[i];
+                // 检查是否加载完成
                 if (operation.Update())
                 {
                     i++;
                 }
                 else
                 {
+                    // 加载/下载完成 释放脚本 保存资源
                     m_InProgressOperations.RemoveAt(i);
                     ProcessFinishedOperation(operation);
                 }

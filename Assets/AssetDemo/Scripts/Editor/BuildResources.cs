@@ -31,9 +31,9 @@ public class BuildResources
         {
             // ±ØÐë
             new Resource(manifest, GetPath(manifest)).AddOnDemandResourceTags(manifest),
-            
-            new Resource("cube-bundle", GetPath("cube-bundle")).AddOnDemandResourceTags("cube-bundle"),
+
             new Resource("material-bundle", GetPath("material-bundle")).AddOnDemandResourceTags("material-bundle"),
+            new Resource("cube-bundle", GetPath("cube-bundle")).AddOnDemandResourceTags("cube-bundle"),
             new Resource("scene-bundle", GetPath("scene-bundle")).AddOnDemandResourceTags("scene-bundle"),
                         
             

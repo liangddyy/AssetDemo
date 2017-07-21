@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using AssetBundles;
+using UnityEditor.iOS;
+using UnityEngine.SceneManagement;
 
 public class AssetTest : MonoBehaviour {
     string sceneName = "TestScene";
@@ -8,15 +10,39 @@ public class AssetTest : MonoBehaviour {
     
     public void LoadSceneTest()
     {
+        BuildPipeline.OnDemandTagsCollectorDelegate.
         StartCoroutine(InitializeLevelAsync(sceneName, true));
     }
-
+    /// <summary>
+    /// ---------------
+    /// </summary>
     public void LoadObj()
     {
         StartCoroutine(InstantiateGameObjectAsync("cube-bundle", "MyCube"));
 
     }
 
+    public void ToTank()
+    {
+        LoadScene("TanksLoader");
+    }
+    /// <summary>
+    /// ------------
+    /// </summary>
+    public void ToAsset()
+    {
+        LoadScene("VariantLoader");
+    }
+    private void LoadScene(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="assetBundleName">bundle对象</param>
+    /// <param name="assetName"></param>
+    /// <returns></returns>
     protected IEnumerator InstantiateGameObjectAsync(string assetBundleName, string assetName)
     {
         float startTime = Time.realtimeSinceStartup;

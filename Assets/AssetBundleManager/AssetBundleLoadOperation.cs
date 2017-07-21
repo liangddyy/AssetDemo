@@ -9,6 +9,10 @@ using System.Collections;
 
 namespace AssetBundles
 {
+    /// <summary>
+    /// 资源加载
+    /// </summary>
+    /// <seealso cref="System.Collections.IEnumerator" />
     public abstract class AssetBundleLoadOperation : IEnumerator
     {
         public object Current
@@ -32,7 +36,6 @@ namespace AssetBundles
 
         abstract public bool IsDone();
     }
-
     /// <summary>
     /// 资源下载
     /// </summary>
@@ -48,6 +51,10 @@ namespace AssetBundles
         protected abstract bool downloadIsDone { get; }
         protected abstract void FinishDownload();
 
+        /// <summary>
+        ///  检查是否完成
+        /// </summary>
+        /// <returns></returns>
         public override bool Update()
         {
             if (!done && downloadIsDone)
@@ -73,10 +80,7 @@ namespace AssetBundles
     }
 
 #if ENABLE_IOS_ON_DEMAND_RESOURCES
-    /// <summary>
-    /// 从iOS异步读/ TVOS资源...按需下载
-    /// </summary>
-    /// <seealso cref="AssetBundles.AssetBundleDownloadOperation" />
+    // ODR odr:// 下载
     public class AssetBundleDownloadFromODROperation : AssetBundleDownloadOperation
     {
         OnDemandResourcesRequest request;
@@ -86,6 +90,7 @@ namespace AssetBundles
         {
             // Work around Xcode crash when opening Resources tab when a 
             // resource name contains slash character
+            // 不能包含"/"
             request = OnDemandResources.PreloadAsync(new string[] { assetBundleName.Replace('/', '>') });
         }
 

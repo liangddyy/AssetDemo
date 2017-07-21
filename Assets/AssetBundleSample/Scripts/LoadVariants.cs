@@ -69,7 +69,7 @@ public class LoadVariants : MonoBehaviour
 
         // Set active variants.
         AssetBundleManager.ActiveVariants = activeVariants;
-
+        Debug.Log(activeVariants[0]);
         // 场景
         yield return StartCoroutine(InitializeLevelAsync(variantSceneName, true));
     }
@@ -82,7 +82,6 @@ public class LoadVariants : MonoBehaviour
         #if ENABLE_IOS_ON_DEMAND_RESOURCES
         if (UnityEngine.iOS.OnDemandResources.enabled)
         {
-            // 资源地址
             AssetBundleManager.overrideBaseDownloadingURL += OverrideDownloadingURLForLocalBundles;
             AssetBundleManager.SetSourceAssetBundleURL("odr://");
             return;
@@ -92,7 +91,7 @@ public class LoadVariants : MonoBehaviour
         // With this code, when in-editor or using a development builds: Always use the AssetBundle Server
         // (This is very dependent on the production workflow of the project.
         //      Another approach would be to make this configurable in the standalone player.)
-        AssetBundleManager.SetDevelopmentAssetBundleServer();
+            AssetBundleManager.SetDevelopmentAssetBundleServer();
         return;
         #else
         // Use the following code if AssetBundles are embedded in the project for example via StreamingAssets folder etc:

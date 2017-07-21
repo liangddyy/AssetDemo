@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 3194852357
+CRC: 3416837967
 Hashes:
   AssetFileHash:
     serializedVersion: 2
@@ -32,6 +32,6 @@ ClassTypes:
 - Class: 157
   Script: {instanceID: 0}
 Assets:
-- Assets/AssetBundleSample/Assets/TestScene.unity
+- Assets/AssetDemo/Assets/TestScene.unity
 Dependencies:
 - AssetBundles/iOS/material-bundle
