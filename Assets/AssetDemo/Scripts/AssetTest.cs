@@ -10,7 +10,7 @@ public class AssetTest : MonoBehaviour {
     
     public void LoadSceneTest()
     {
-        BuildPipeline.OnDemandTagsCollectorDelegate.
+//        BuildPipeline.OnDemandTagsCollectorDelegate.
         StartCoroutine(InitializeLevelAsync(sceneName, true));
     }
     /// <summary>
