@@ -30,7 +30,6 @@ using System.Collections.Generic;
 namespace AssetBundles
 {
     /// <summary>
-    /// 引用计数
     /// Loaded assetBundle contains the references count which can be used to
     /// unload dependent assetBundles automatically.
     /// </summary>
@@ -56,8 +55,8 @@ namespace AssetBundles
     }
 
     /// <summary>
-    /// Class takes care of loading assetBundle and its dependencies
-    /// automatically, loading variants automatically.
+    /// 资源加载/下载管理类
+    /// 自动加载依赖/变体
     /// </summary>
     public class AssetBundleManager : MonoBehaviour
     {
@@ -171,7 +170,7 @@ namespace AssetBundles
         {
             if (Application.isEditor)
                 return "file://" + System.Environment.CurrentDirectory.Replace("\\", "/");
-                    // Use the build output folder directly.
+            // Use the build output folder directly.
             else if (Application.isWebPlayer)
                 return System.IO.Path.GetDirectoryName(Application.absoluteURL).Replace("\\", "/") + "/StreamingAssets";
             else if (Application.isMobilePlatform || Application.isConsolePlatform)
@@ -552,8 +551,9 @@ namespace AssetBundles
 
             m_Dependencies.Remove(assetBundleName);
         }
+
         /// <summary>
-        /// 卸载下载的资源(ODR:回调OnDemandResourcesRequest.Dispose)
+        /// 卸载下载的资源(ODR: = 回调OnDemandResourcesRequest.Dispose)
         /// </summary>
         /// <param name="assetBundleName">Name of the asset bundle.</param>
         static protected void UnloadAssetBundleInternal(string assetBundleName)

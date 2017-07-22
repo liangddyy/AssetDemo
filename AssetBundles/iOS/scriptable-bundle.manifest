@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 2690885612
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9717b3f3b4b71ae197de68266bbc9615
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: a1cd2e165e6591bdb47115c14bbb6f58
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: 2b41b6a4282f5844da2583212c26f104, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/AssetDemo/Assets/TestData.asset
+Dependencies: []

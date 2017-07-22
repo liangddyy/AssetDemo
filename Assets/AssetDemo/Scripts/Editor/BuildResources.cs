@@ -31,23 +31,21 @@ namespace AssetsDemo
             string manifest = AssetBundles.Utility.GetPlatformName();
             return new Resource[]
             {
-                // 必须
                 new Resource(manifest, GetPath(manifest)).AddOnDemandResourceTags(manifest),
                 new Resource("material-bundle", GetPath("material-bundle")).AddOnDemandResourceTags("material-bundle"),
                 new Resource("cube-bundle", GetPath("cube-bundle")).AddOnDemandResourceTags("cube-bundle"),
                 new Resource("scene-bundle", GetPath("scene-bundle")).AddOnDemandResourceTags("scene-bundle"),
-                new Resource("variants/variant-scene", GetPath("variants/variant-scene")).AddOnDemandResourceTags(
-                    "variants>variant-scene"),
-                // 资源分割
-                new Resource("variants/myassets").BindVariant(GetPath("variants/myassets.hd"), "hd")
-                    .BindVariant(GetPath("variants/myassets.sd"), "sd")
-                    .AddOnDemandResourceTags("variants>myassets"),
-                new Resource("variants/logo").BindVariant(GetPath("variants/logo.hd"), "hd")
-                    .BindVariant(GetPath("variants/logo.sd"), "sd"),
-                new Resource("banner", GetPath("banner.english")).AddOnDemandResourceTags("banner"),
-                new Resource("tanks-scene-bundle", GetPath("tanks-scene-bundle")).AddOnDemandResourceTags(
-                    "tanks-scene-bundle"),
-                new Resource("tanks-albedo", GetPath("tanks-albedo.normal-sd")).AddOnDemandResourceTags("tanks-albedo")
+                new Resource("img-bundle", GetPath("img-bundle")).AddOnDemandResourceTags("img-bundle"),
+                new Resource("audio-bundle", GetPath("audio-bundle")).AddOnDemandResourceTags("audio-bundle"),
+                new Resource("txt-bundle", GetPath("txt-bundle")).AddOnDemandResourceTags("txt-bundle"),
+                new Resource("scriptable-bundle", GetPath("scriptable-bundle")).AddOnDemandResourceTags("scriptable-bundle")
+
+//                // 资源分割
+//                new Resource("variants/myassets").BindVariant(GetPath("variants/myassets.hd"), "hd")
+//                    .BindVariant(GetPath("variants/myassets.sd"), "sd")
+//                    .AddOnDemandResourceTags("variants>myassets"),
+//                new Resource("variants/logo").BindVariant(GetPath("variants/logo.hd"), "hd")
+//                    .BindVariant(GetPath("variants/logo.sd"), "sd"),
             };
         }
     }

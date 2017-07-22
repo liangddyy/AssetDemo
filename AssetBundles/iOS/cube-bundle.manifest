@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2723620282
+CRC: 1640524154
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 857cdb8a36650c21d1cd5c7c7ab51496
+    Hash: 6024fb4eea53c5c663d0107e59740856
   TypeTreeHash:
     serializedVersion: 2
     Hash: f32a41bbde7c5e5f2c8a1e7a75dc24d3
@@ -28,6 +28,6 @@ ClassTypes:
 - Class: 135
   Script: {instanceID: 0}
 Assets:
-- Assets/AssetBundleSample/Assets/MyCube.prefab
+- Assets/AssetDemo/Assets/MyCube.prefab
 Dependencies:
 - AssetBundles/iOS/material-bundle

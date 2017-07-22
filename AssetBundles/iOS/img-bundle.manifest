@@ -1,20 +1,18 @@
 ManifestFileVersion: 0
-CRC: 1440130288
+CRC: 267477950
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 431e30b40633d33cc2c8e6d7755f93f7
+    Hash: 48bc8407fdcdf3b605c7d6d58c7c4557
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 6e91bf4d7bfc7c90eaa9aea5318d52d8
+    Hash: b4e255358bc6dfe3489204891e3f5fb1
 HashAppended: 0
 ClassTypes:
-- Class: 21
-  Script: {instanceID: 0}
 - Class: 28
   Script: {instanceID: 0}
-- Class: 48
+- Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/AssetDemo/Assets/MyMaterial.mat
+- Assets/AssetDemo/Assets/UnityLogo.png
 Dependencies: []
