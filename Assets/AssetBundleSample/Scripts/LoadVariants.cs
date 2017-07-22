@@ -70,7 +70,7 @@ public class LoadVariants : MonoBehaviour
         // Set active variants.
         AssetBundleManager.ActiveVariants = activeVariants;
         Debug.Log(activeVariants[0]);
-        // ³¡¾°
+        // ï¿½ï¿½ï¿½ï¿½
         yield return StartCoroutine(InitializeLevelAsync(variantSceneName, true));
     }
 
@@ -86,12 +86,12 @@ public class LoadVariants : MonoBehaviour
             AssetBundleManager.SetSourceAssetBundleURL("odr://");
             return;
         }
-        #endif
-        #if DEVELOPMENT_BUILD || UNITY_EDITOR
+#endif
+#if DEVELOPMENT_BUILD || UNITY_EDITOR
         // With this code, when in-editor or using a development builds: Always use the AssetBundle Server
         // (This is very dependent on the production workflow of the project.
         //      Another approach would be to make this configurable in the standalone player.)
-            AssetBundleManager.SetDevelopmentAssetBundleServer();
+        AssetBundleManager.SetDevelopmentAssetBundleServer();
         return;
         #else
         // Use the following code if AssetBundles are embedded in the project for example via StreamingAssets folder etc:
@@ -133,7 +133,7 @@ public class LoadVariants : MonoBehaviour
     /// Initializes the level asynchronous.
     /// </summary>
     /// <param name="levelName">Name of the level.</param>
-    /// <param name="isAdditive">ÊÇ·ñÌí¼Óµ½µ±Ç°³¡¾°</param>
+    /// <param name="isAdditive">ï¿½Ç·ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½</param>
     /// <returns></returns>
     protected IEnumerator InitializeLevelAsync(string levelName, bool isAdditive)
     {

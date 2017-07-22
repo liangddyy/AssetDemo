@@ -32,8 +32,8 @@ public class LoadAssets : MonoBehaviour
             AssetBundleManager.SetSourceAssetBundleURL("odr://");
             return;
         }
-        #endif
-        #if DEVELOPMENT_BUILD || UNITY_EDITOR
+#endif
+#if DEVELOPMENT_BUILD || UNITY_EDITOR
 
         AssetBundleManager.SetDevelopmentAssetBundleServer();
         return;

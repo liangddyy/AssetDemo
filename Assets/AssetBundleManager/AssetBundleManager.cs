@@ -61,12 +61,22 @@ namespace AssetBundles
     /// </summary>
     public class AssetBundleManager : MonoBehaviour
     {
-        public enum LogMode { All, JustErrors };
-        public enum LogType { Info, Warning, Error };
+        public enum LogMode
+        {
+            All,
+            JustErrors
+        };
+
+        public enum LogType
+        {
+            Info,
+            Warning,
+            Error
+        };
 
         static LogMode m_LogMode = LogMode.All;
         static string m_BaseDownloadingURL = "";
-        static string[] m_ActiveVariants =  {};
+        static string[] m_ActiveVariants = {};
         static AssetBundleManifest m_AssetBundleManifest = null;
 
 #if UNITY_EDITOR
@@ -119,7 +129,7 @@ namespace AssetBundles
         /// </summary>
         public static AssetBundleManifest AssetBundleManifestObject
         {
-            set {m_AssetBundleManifest = value; }
+            set { m_AssetBundleManifest = value; }
         }
 
         private static void Log(LogType logType, string text)
@@ -160,13 +170,14 @@ namespace AssetBundles
         private static string GetStreamingAssetsPath()
         {
             if (Application.isEditor)
-                return "file://" +  System.Environment.CurrentDirectory.Replace("\\", "/"); // Use the build output folder directly.
+                return "file://" + System.Environment.CurrentDirectory.Replace("\\", "/");
+                    // Use the build output folder directly.
             else if (Application.isWebPlayer)
                 return System.IO.Path.GetDirectoryName(Application.absoluteURL).Replace("\\", "/") + "/StreamingAssets";
             else if (Application.isMobilePlatform || Application.isConsolePlatform)
                 return Application.streamingAssetsPath;
             else // For standalone player.
-                return "file://" +  Application.streamingAssetsPath;
+                return "file://" + Application.streamingAssetsPath;
         }
 
         /// <summary>
@@ -294,7 +305,8 @@ namespace AssetBundles
 #endif
 
             LoadAssetBundle(manifestAssetBundleName, true);
-            var operation = new AssetBundleLoadManifestOperation(manifestAssetBundleName, "AssetBundleManifest", typeof(AssetBundleManifest));
+            var operation = new AssetBundleLoadManifestOperation(manifestAssetBundleName, "AssetBundleManifest",
+                typeof(AssetBundleManifest));
             m_InProgressOperations.Add(operation);
             return operation;
         }
@@ -304,12 +316,13 @@ namespace AssetBundles
         {
             LoadAssetBundle(assetBundleName, false);
         }
-            
+
         // Starts the download of the asset bundle identified by the given name, and asset bundles
         // that this asset bundle depends on.
         static protected void LoadAssetBundle(string assetBundleName, bool isLoadingAssetBundleManifest)
         {
-            Log(LogType.Info, "Loading Asset Bundle " + (isLoadingAssetBundleManifest ? "Manifest: " : ": ") + assetBundleName);
+            Log(LogType.Info,
+                "Loading Asset Bundle " + (isLoadingAssetBundleManifest ? "Manifest: " : ": ") + assetBundleName);
 
 #if UNITY_EDITOR
             // If we're in Editor simulation mode, we don't have to really load the assetBundle and its dependencies.
@@ -321,7 +334,8 @@ namespace AssetBundles
             {
                 if (m_AssetBundleManifest == null)
                 {
-                    Log(LogType.Error, "Please initialize AssetBundleManifest by calling AssetBundleManager.Initialize()");
+                    Log(LogType.Error,
+                        "Please initialize AssetBundleManifest by calling AssetBundleManager.Initialize()");
                     return;
                 }
             }
@@ -407,7 +421,9 @@ namespace AssetBundles
 
             if (bestFit == int.MaxValue - 1)
             {
-                Log(LogType.Warning, "Ambigious asset bundle variant chosen because there was no matching active variant: " + bundlesWithVariant[bestFitIndex]);
+                Log(LogType.Warning,
+                    "Ambigious asset bundle variant chosen because there was no matching active variant: " +
+                    bundlesWithVariant[bestFitIndex]);
             }
 
             if (bestFitIndex != -1)
@@ -473,7 +489,8 @@ namespace AssetBundles
                 if (isLoadingAssetBundleManifest)
                     download = new WWW(url);
                 else
-                    download = WWW.LoadFromCacheOrDownload(url, m_AssetBundleManifest.GetAssetBundleHash(assetBundleName), 0);
+                    download = WWW.LoadFromCacheOrDownload(url,
+                        m_AssetBundleManifest.GetAssetBundleHash(assetBundleName), 0);
 
                 m_InProgressOperations.Add(new AssetBundleDownloadFromWebOperation(assetBundleName, download));
             }
@@ -506,7 +523,7 @@ namespace AssetBundles
         }
 
         /// <summary>
-        /// Unloads assetbundle and its dependencies.
+        /// 释放资源以及所依赖的资源包.回收存储空间
         /// </summary>
         static public void UnloadAssetBundle(string assetBundleName)
         {
@@ -535,7 +552,10 @@ namespace AssetBundles
 
             m_Dependencies.Remove(assetBundleName);
         }
-
+        /// <summary>
+        /// 卸载下载的资源(ODR:回调OnDemandResourcesRequest.Dispose)
+        /// </summary>
+        /// <param name="assetBundleName">Name of the asset bundle.</param>
         static protected void UnloadAssetBundleInternal(string assetBundleName)
         {
             string error;
@@ -582,7 +602,7 @@ namespace AssetBundles
             else
             {
                 string msg = string.Format("Failed downloading bundle {0} from {1}: {2}",
-                        download.assetBundleName, download.GetSourceURL(), download.error);
+                    download.assetBundleName, download.GetSourceURL(), download.error);
                 m_DownloadingErrors.Add(download.assetBundleName, msg);
             }
 
@@ -592,7 +612,8 @@ namespace AssetBundles
         /// <summary>
         /// Starts a load operation for an asset from the given asset bundle.
         /// </summary>
-        static public AssetBundleLoadAssetOperation LoadAssetAsync(string assetBundleName, string assetName, System.Type type)
+        static public AssetBundleLoadAssetOperation LoadAssetAsync(string assetBundleName, string assetName,
+            System.Type type)
         {
             Log(LogType.Info, "Loading " + assetName + " from " + assetBundleName + " bundle");
 

@@ -92,6 +92,7 @@ namespace AssetBundles
             // resource name contains slash character
             // ²»ÄÜ°üº¬"/"
             request = OnDemandResources.PreloadAsync(new string[] { assetBundleName.Replace('/', '>') });
+            
         }
 
         protected override bool downloadIsDone { get { return (request == null) || request.isDone; } }
