@@ -9,6 +9,7 @@ namespace AssetBundles.Demo
     {
         public AudioSource audioSource;
         public Image image;
+        
 //        public ScriptableTest test;
         public void LoadSceneTest()
         {

@@ -16,7 +16,8 @@ namespace AssetBundles.Demo
         }
 
         #region ResourceInit
-
+        
+        
         protected IEnumerator Initialize()
         {
             // Don't destroy the game object as we base on it to run the loading script.
