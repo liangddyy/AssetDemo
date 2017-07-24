@@ -5,19 +5,17 @@ using AssetBundles;
 namespace AssetBundles.Demo
 {
     public class GameManager : MonoBehaviour
-    {
-        public GameObject debbugerTest;
+    {       
+        public GameObject debbugerT;
         // Use this for initialization
         IEnumerator Start()
         {
-            DontDestroyOnLoad(debbugerTest);
-
+            DontDestroyOnLoad(debbugerT);
             yield return StartCoroutine(Initialize());
         }
 
         #region ResourceInit
-        
-        
+
         protected IEnumerator Initialize()
         {
             // Don't destroy the game object as we base on it to run the loading script.
@@ -56,7 +54,6 @@ namespace AssetBundles.Demo
         return;
 #endif
         }
-
         #endregion
     }
 }
