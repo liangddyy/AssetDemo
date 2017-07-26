@@ -15,9 +15,10 @@ namespace AssetBundles.Demo
         }
 
         #region ResourceInit
-
+        
         protected IEnumerator Initialize()
         {
+            print("test");
             // Don't destroy the game object as we base on it to run the loading script.
             DontDestroyOnLoad(gameObject);
 

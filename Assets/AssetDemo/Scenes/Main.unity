@@ -1884,7 +1884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571eed34280540b459ba30469d67c4fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debbugerTest: {fileID: 1985967687}
+  debbugerT: {fileID: 1985967687}
 --- !u!4 &1568874684
 Transform:
   m_ObjectHideFlags: 0
