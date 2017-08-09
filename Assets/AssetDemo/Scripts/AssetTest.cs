@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.iOS;
 
 namespace AssetBundles.Demo
 {
@@ -19,6 +20,7 @@ namespace AssetBundles.Demo
         }
         public void ReleaseSceneTest()
         {
+//            OnDemandResourcesRequest.Dispose();
             AssetBundleManager.UnloadAssetBundle("scene-bundle");
         }
         /// <summary>

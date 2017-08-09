@@ -16,3 +16,5 @@ MonoBehaviour:
     name: test1
   - clothsType: 2
     name: test2
+  - clothsType: 1
+    name: test33

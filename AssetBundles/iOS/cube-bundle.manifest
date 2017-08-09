@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1640524154
+CRC: 3032271538
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6024fb4eea53c5c663d0107e59740856
+    Hash: 3c86b50934b60e9952efe9445811901c
   TypeTreeHash:
     serializedVersion: 2
-    Hash: f32a41bbde7c5e5f2c8a1e7a75dc24d3
+    Hash: 87623bb9f607f4edb72c2338fde167fc
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -21,11 +21,7 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 43
   Script: {instanceID: 0}
-- Class: 48
-  Script: {instanceID: 0}
 - Class: 65
-  Script: {instanceID: 0}
-- Class: 135
   Script: {instanceID: 0}
 Assets:
 - Assets/AssetDemo/Assets/MyCube.prefab
